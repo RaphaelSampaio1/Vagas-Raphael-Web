@@ -1,0 +1,11 @@
+<div style="margin-bottom: 16px;">
+    <h4 style="color:rgb(93, 58, 232); margin-bottom: 2px;">{{i['titulo']}}</h4>
+    <div>
+        <b>Localização : </b>{{i['Localização']}}
+    </div>
+
+    {% if 'Salario' in i %}
+    <div>
+        <b>Salário : </b>R${{i['Salario']}}
+    {% endif %}
+</div>
