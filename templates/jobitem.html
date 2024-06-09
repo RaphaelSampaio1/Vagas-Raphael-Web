@@ -1,11 +1,18 @@
-<div style="margin-bottom: 16px;">
-    <h4 style="color:rgb(93, 58, 232); margin-bottom: 2px;">{{i['titulo']}}</h4>
-    <div>
-        <b>Localização : </b>{{i['Localização']}}
+<div class="border-bottom row" style="margin-bottom: 16px; padding-bottom: 8px;">
+    <div class="col-10">
+        <h4 style="color: rgb(120, 120, 120); margin-bottom: 4px;">
+            {{i['titulo']}}
+        </h4>
+        <div>
+            <b>localização : </b> {{i['Localização']}}
+        </div>
+        {% if 'Salario' in i %}
+        <div>
+            <b>Salario : R$</b>{{i['Salario']}}
+        </div>
+        {% endif %}
     </div>
-
-    {% if 'Salario' in i %}
-    <div>
-        <b>Salário : </b>R${{i['Salario']}}
-    {% endif %}
+    <div class="col-2 d-flex align-items-center justify-content-end">
+        <button type="button" class="btn btn-outline-primary">Enviar CV</button>
+    </div>
 </div>
