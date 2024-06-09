@@ -19,6 +19,7 @@
             width: 100%;
             height: 360px;
             object-fit: cover;
+            margin-bottom: 16px;
         }
 
         p{
@@ -51,15 +52,23 @@
     </style>
 </head>
 <body>
+    {% include "navbar.html" %}
+    <img class="img-fluid" id= "banner" src="../static/Capa_foto.jpg" >
     <div class="container">
+
         <h1 class="text-center mb-4" >{{company_name}} Vagas</h1>
 
-        <img class="img-fluid" id= "banner" src="../static/Capa_foto.jpg" >
-        <h2 id="sobre" class="mt-2 mb-4">Sobre Sampaio</h2>
+        <div class="row" style="margin-bottom: 16px;">
+            <div class="col-md-7">
+                <p class="lead">Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker.</p>
+            </div>
+            
+            <div class="d-none d-md-block col-md-5">
+                <img src="/static/peoples_work.jpg" alt="pessoas trabalhando" style="height: 320px; margin-bottom: 4px;">
+            </div>
+        </div>
 
-        <p class="lead">Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker.</p>
-
-        <h2 id="vagas" class="mb-4">Vagas</h2>
+        <h2 id="vagas" class="mb-4 mt-4">Vagas</h2>
 
         <div >
             {% for i in JOBS %}
@@ -70,7 +79,7 @@
         </div>
         <div class="text-center">
             <div class="d-grid gap-2 col-6 mx-auto">
-                <button type="button" class="btn btn-primary btn-lg">Entrar em Contato</button>
+                <a href="mailto:raphaelsampaio.jan@gmail.com?subject=Duvidas%20sobre%20a%20plataforma&body=Meu%20nome%20%3A%20%3Cmeu%20nome%3E%0D%0A%0D%0AMinha%20pergunta%20%3A%20%3Cpergunta%3E" type="button" class="btn btn-primary btn-lg">Fale Conosco</a>
             </div>
             <p class="mt-2">Copyright 2024, Sampaio</p>
         </div>   

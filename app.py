@@ -17,13 +17,13 @@ JOBS = [
     },
     {
         'id': 3,
-        'titulo' : 'Engenheiro de dados PL',
+        'titulo' : 'Engenheiro de Dados PL',
         'Localização' : 'Santa Catarina, Brasil',
         'Salario' : 13200
     },
     {
         'id': 4,
-        'titulo' : 'Gestor de Tragefo',
+        'titulo' : 'Gestor de Trafego',
         'Localização' : 'Remoto',
         'Salario' : 9800
     }
