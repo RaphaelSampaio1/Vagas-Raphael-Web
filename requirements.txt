@@ -2,3 +2,4 @@ Flask
 gunicorn
 sqlalchemy
 pyodbc
+flask_sqlalchemy
