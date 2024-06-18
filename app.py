@@ -1,4 +1,4 @@
-from flask import Flask,render_template,jsonify
+from flask import Flask, render_template, jsonify
 import urllib
 from flask_sqlalchemy import SQLAlchemy
 import pyodbc
@@ -25,10 +25,10 @@ class Vaga(db.Model):
     Titulo = db.Column(db.String(250), nullable=False)
     Localizacao = db.Column(db.String(250), nullable=False)
     Salario = db.Column(db.Numeric(19, 4), nullable=True)
-    Moeda =db.Column(db.String(10), nullable=True)
+    Moeda = db.Column(db.String(10), nullable=True)
     Responsabilidades = db.Column(db.String(3000), nullable=True)
     Requisitos = db.Column(db.String(3000), nullable=True)
-
+    
 
 # Função para estabelecer a conexão
 def conectar_bd():
@@ -36,17 +36,14 @@ def conectar_bd():
         # Conectar ao banco de dados
         conexao = pyodbc.connect(dados_conexao)
         print('\033[1;32mConexão feita com sucesso!')
-        
         # Fechar a conexão
         conexao.close()
-        
         return True
-    
     except pyodbc.Error as err:
         print(f'\033[1;31mErro na conexão: {err}')
         return False
 
-# Rota para página inicial
+# HOME
 @app.route("/")
 def hello_world():
     if conectar_bd():
@@ -56,6 +53,7 @@ def hello_world():
             vagas = Vaga.query.all()
             for vaga in vagas:
                 job = {
+                    'Id': vaga.Id,
                     'titulo': vaga.Titulo,
                     'Localizacao': vaga.Localizacao,
                     'Responsabilidades': vaga.Responsabilidades
@@ -63,24 +61,33 @@ def hello_world():
                 if vaga.Salario is not None:
                     job['Salario'] = float(vaga.Salario)
                 jobs.append(job)
-            
             return render_template('home.html', JOBS=jobs, company_name='Sampaio')
-        
         except Exception as e:
             print(f'\033[1;31mErro ao consultar vagas: {e}')
             return 'Erro ao consultar vagas.'
-    
     else:
         return 'Erro ao conectar ao banco de dados.'
-    
 
-
-
-
+# TELA DE ITENS DA VAGA
+@app.route("/job/<int:id>")
+def mostrar_vaga(id):
+    vaga = Vaga.query.get(id)
+    if vaga is None:
+        return 'Vaga não encontrada', 404
+    job = {
+        'Id': vaga.Id,
+        'Titulo': vaga.Titulo,
+        'Localizacao': vaga.Localizacao,
+        'Salario': float(vaga.Salario) if vaga.Salario else None,
+        'Moeda': vaga.Moeda,
+        'Responsabilidades': vaga.Responsabilidades,
+        'Requisitos': vaga.Requisitos
+    }
+    return render_template('vaga.html', vaga=job)
 
 @app.route("/api/vagas")
 def lista_vagas():
-    jobs = job.query.all()  # Busca todas as vagas do banco
+    jobs = Vaga.query.all()  # Busca todas as vagas do banco
     job_list = []
     for job in jobs:
         job_data = {
@@ -93,8 +100,7 @@ def lista_vagas():
             'Requisitos': job.Requisitos
         }
         job_list.append(job_data)
-    
     return jsonify(job_list)
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0',debug=True)  
+    app.run(host='0.0.0.0', debug=True)

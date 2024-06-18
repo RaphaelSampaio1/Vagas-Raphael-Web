@@ -1,18 +1,18 @@
 <div class="border-bottom row" style="margin-bottom: 16px; padding-bottom: 8px;">
     <div class="col-10">
         <h4 style="color: rgb(120, 120, 120); margin-bottom: 4px;">
-            {{i['titulo']}}
+            <a href="{{ url_for('mostrar_vaga', id=i['Id']) }}">{{ i['titulo'] }}</a>
         </h4>
         <div>
-            <b>localização : </b> {{i['Localizacao']}}
+            <b>Localização:</b> {{ i['Localizacao'] }}
         </div>
         {% if 'Salario' in i %}
         <div>
-            <b>Salario : R$</b>{{i['Salario']}}
+            <b>Salário: R$</b>{{ i['Salario'] }}
         </div>
         {% endif %}
     </div>
     <div class="col-2 d-flex align-items-center justify-content-end">
-        <a href="mailto:raphaelsampaio.jan@gmail.com?subject=Aplica%C3%A7%C3%A3o%20para%20a%20vaga%20de%20{{i['titulo']}}&body=Meu%20nome%20%3A%20%3Cmeu%20nome%3E%0D%0A%0D%0ACurr%C3%ADculo%20%3A%20%3Cmeu%20curriculo%3E%0D%0A%0D%0AMeu%20Linkedin%20%3A%20%3Cmeu%20linkedin%3E" type="button" class="btn btn-outline-primary">Enviar CV</a>
+        <a href="mailto:raphaelsampaio.jan@gmail.com?subject=Aplica%C3%A7%C3%A3o%20para%20a%20vaga%20de%20{{ i['titulo'] }}&body=Meu%20nome%20%3A%20%3Cmeu%20nome%3E%0D%0A%0D%0ACurr%C3%ADculo%20%3A%20%3Cmeu%20curriculo%3E%0D%0A%0D%0AMeu%20Linkedin%20%3A%20%3Cmeu%20linkedin%3E" type="button" class="btn btn-outline-primary">Enviar CV</a>
     </div>
 </div>

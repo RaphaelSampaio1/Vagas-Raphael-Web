@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sampaio Vagas - {{vaga.Titulo}}</title>
+</head>
+<body>
+    <h1>{{ vaga.Titulo }}</h1>
+    <p><strong>Localização:</strong> {{ vaga.Localizacao }}</p>
+    <p><strong>Salário:</strong> {{ vaga.Salario }} {{ vaga.Moeda }}</p>
+    <p><strong>Responsabilidades:</strong></p>
+    <p>{{ vaga.Responsabilidades }}</p>
+    <p><strong>Requisitos:</strong></p>
+    <p>{{ vaga.Requisitos }}</p>
+    <a href="{{ url_for('hello_world') }}">Voltar</a>
+</body>
+</html>
