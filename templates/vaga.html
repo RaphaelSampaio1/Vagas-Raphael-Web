@@ -1,18 +1,40 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% include 'bootstrap.html' %}
     <title>Sampaio Vagas - {{vaga.Titulo}}</title>
+    {% include 'navbar.html' %}
+    <style>
+        body{
+            padding-top: 90px;
+        }
+    </style>
 </head>
 <body>
-    <h1>{{ vaga.Titulo }}</h1>
-    <p><strong>Localização:</strong> {{ vaga.Localizacao }}</p>
-    <p><strong>Salário:</strong> {{ vaga.Salario }} {{ vaga.Moeda }}</p>
-    <p><strong>Responsabilidades:</strong></p>
-    <p>{{ vaga.Responsabilidades }}</p>
-    <p><strong>Requisitos:</strong></p>
-    <p>{{ vaga.Requisitos }}</p>
+    <h1 class="mt-4">{{ vaga.Titulo }}</h1>
+    <p class="lead">{{ vaga.Localizacao }}</p>
+    <h5>Responsabilidades</h5>
+    <ul>
+        {% for linha in vaga.Responsabilidades.split("\n") %}
+        <li>{{ linha }}</li>
+        <!-- PRECISAR ARRUMAR AQUI PORQUE ESTÁ SAINDO DUPLICADO -->
+    <p class="clas"> {{ vaga.Responsabilidades }} </p>
+    </ul>
+    <h5>Requisitos</h5>
+    <ol>
+        {% if vaga.Requisitos %}
+            {% for linha in vaga.Requisitos.split("\n") %}
+            <li>{{ linha }}</li>
+            {% endfor %}
+        {% else %}
+            <li>Não há requisitos informados</li>
+        {% endif %}
+    </ol>
+    <h5>Salário</h5>
+    <p class="lead"> {{ vaga.Moeda }}  {{ vaga.Salario }}</p>
     <a href="{{ url_for('hello_world') }}">Voltar</a>
+    <br>
+    {% include 'footer.html' %}
 </body>
-</html>
+</html>  {% endfor %}
+    

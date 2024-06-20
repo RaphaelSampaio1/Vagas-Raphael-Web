@@ -69,7 +69,7 @@ def hello_world():
         return 'Erro ao conectar ao banco de dados.'
 
 # TELA DE ITENS DA VAGA
-@app.route("/job/<int:id>")
+@app.route("/sobre-vaga/<int:id>")
 def mostrar_vaga(id):
     vaga = Vaga.query.get(id)
     if vaga is None:
@@ -97,7 +97,7 @@ def lista_vagas():
             'Salario': float(job.Salario) if job.Salario else None,
             'Moeda': job.Moeda,
             'Responsabilidades': job.Responsabilidades,
-            'Requisitos': job.Requisitos
+            'Requisitos': job.Requisitos if job.Requisitos else 'Requisito não especificado'
         }
         job_list.append(job_data)
     return jsonify(job_list)
