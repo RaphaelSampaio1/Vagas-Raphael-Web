@@ -37,6 +37,8 @@ VALUES (
      - Boa comunicação e habilidades interpessoais.'
 );
  
+
+Para rodar o código, entre no arquivo 'app.py' e rode.
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
 
