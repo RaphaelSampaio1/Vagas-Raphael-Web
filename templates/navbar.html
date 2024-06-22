@@ -9,13 +9,21 @@
     .nav-item.dropdown:hover .dropdown-menu {
       display: block;
     }
+    .pesquisar-botao {
+      color: #0505b1; /* Cor do texto do botão */
+      border-color: #0505b1; /* Cor da borda do botão */
+    }
+    .pesquisar-botao:hover {
+      background-color: #0505b1; /* Cor de fundo do botão ao passar o mouse */
+      color: white; /* Cor do texto do botão ao passar o mouse */
+    }
   </style>
 </head>
 <body>
   <nav class="navbar navbar-expand-lg bg-primary fixed-top" data-bs-theme="dark">
     <nav class="navbar shadow-sm">
       <div class="container">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="/">
           <img src="/static/SAmPAIO4VAGAS(1)-Photoroom.png" alt="Bootstrap" width="50" height="35">
         </a>
       </div>
@@ -29,7 +37,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" href="https://go.hotmart.com/U92476212E?dp=1">Cursos</a>
+            <a class="nav-link" href="https://go.hotmart.com/U92476212E?dp=1">Curso</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -42,8 +50,8 @@
           </li>
         </ul>
         <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
+          <input class="form-control me-2" type="search" placeholder="Procurar vaga" aria-label="Search">
+          <button class="btn pesquisar-botao" type="submit">Pesquisar</button>
         </form>
       </div>
     </div>

@@ -32,6 +32,7 @@
     </ol>
     <h5>Salário</h5>
     <p class="lead"> {{ vaga.Moeda }}  {{ vaga.Salario }}</p>
+    {% include 'formulario_vaga.html' %}
     <a href="{{ url_for('hello_world') }}">Voltar</a>
     <br>
     {% include 'footer.html' %}

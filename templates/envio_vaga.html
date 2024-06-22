@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Envio - Sampaio Vagas</title>
+    {% include 'bootstrap.html' %}
+    {% include 'navbar.html' %}
+    <style>
+        body{
+            padding-top: 90px;
+        }
+
+        p[name="sucesso"]{
+            color:rgb(255, 255, 255);
+            font-weight: bold;
+            text-align: center;
+            border: 2px solid rgb(8, 188, 8);
+            padding: 10px;
+            border-radius: 5px;
+            background-color: rgb(75, 222, 70);
+        }
+    </style>
+</head>
+<body>
+    
+    <div>
+        <p name="sucesso">Sua inscrição para a vaga "{{vaga['Titulo']}}" foi enviada com sucesso ! </p>
+    </div>
+    <div class="mb-2">
+        <h4>Nome Completo</h4>
+        {{vaga['nome_completo']}}
+    </div>
+    
+
+    <div class="mb-4">
+        <h4>E-mail</h4>
+        {{vaga['email']}}
+    </div>
+
+    <div class="mb-2">
+        <h4>URL LinkedIn</h4>
+        {{vaga['linkedin']}}
+    </div>
+
+    <div class="mb-2">
+        <h4>Educação</h4>
+        {{vaga['educacao']}}
+    </div>
+
+    <div class="mb-2">
+        <h4>Experiência Profissional</h4>
+        {{vaga['experiencia_profissional']}}
+    </div>
+</body>
+</html>

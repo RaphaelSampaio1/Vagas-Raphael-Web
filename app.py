@@ -1,4 +1,4 @@
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, jsonify, request
 import urllib
 from flask_sqlalchemy import SQLAlchemy
 import pyodbc
@@ -84,6 +84,23 @@ def mostrar_vaga(id):
         'Requisitos': vaga.Requisitos
     }
     return render_template('vaga.html', vaga=job)
+
+
+# PAGINA APÓS ENVIO
+@app.route("/vaga/<id>/enviado", methods = ['post'])
+def inscricao_vaga(id):
+    # Store this in da DB
+    
+    # Send a email
+
+    # Capturar dados do formulário
+    data = request.form.to_dict()
+    vaga = Vaga.query.get(id)
+    data['Titulo'] = vaga.Titulo
+    
+    return render_template('envio_vaga.html', vaga = data)
+
+
 
 @app.route("/api/vagas")
 def lista_vagas():

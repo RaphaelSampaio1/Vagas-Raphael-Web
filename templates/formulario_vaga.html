@@ -1,0 +1,28 @@
+<h4>Inscreva-se nesta vaga</h4>
+<form action="/vaga/{{ vaga['Id'] }}/enviado" method="post">
+    <div class="mb-2">
+        <label> Nome Completo </label><br>
+        <input type="text" name="nome_completo" placeholder="Escreva aqui">
+    </div>
+    
+    <div class="mb-2">
+        <label>E-mail</label><br>
+        <input type="text" name="email" placeholder="Escreva aqui">
+    </div>
+    
+    <div class="mb-2">
+        <label>URL LinkedIn</label><br>
+        <input type="text" name="linkedin" placeholder="Escreva aqui">
+    </div>
+
+    <div>
+        <label class="mb-2">Educação</label><br>
+        <textarea name="educacao"></textarea>
+    </div>
+
+    <div>
+        <label class="mb-2">Experiência Profissional</label><br>
+        <textarea name="experiencia_profissional"></textarea>
+    </div>
+    <input type="submit" name="Aplicar">
+</form>
